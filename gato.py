@@ -1,77 +1,74 @@
 """
-Se supone que este es un juego de gato en la consola
+Juego de Gato
 """
-import os
+import numpy as np
 
+matriz = np.zeros((3,3))
+vals = [["_","_","_"],["_","_","_"],["_","_","_"]]#print(vals)
 
-win = [[0,7,14],[4,7,10],[0,2,4],[5,7,9],[10,12,14],[0,5,10],[2,7,12],[4,9,14]]
-
-
-F = True
-
-
-def cambiar(val,xval,yval): #x & y son las coordenadas de la matriz
-
-    """
-Funcion para cambiar x y o
-
-Args:
-    val: valor entero que recibe 0 o 1 
-    xval: es la posicion de la fila
-    yval: es la posicion de la columna
-
-Returns:
-    Cambia los valores de la matriz inicial 
-
-Raises:
-    KeyError: Raises an exception.
-"""
-    pos = ""
-    if val == 0:
-        pos ="X"
-    else:
-        pos ="O"
-    #print(x,y)
-    valx = int(xval)
-    valy = int(yval)
-    formato[valx][valy] = pos
-
-    for listas in formato:
-        for combinacion in win:
-            if listas in combinacion:
-                return True
-
-formato = [['_', '|', '_', '|', '_'],['_', '|', '_', '|', '_'],['_', '|', '_', '|', '_']]
-
-L = """
-     0         2         4
- 0 ['_', '|', '_', '|', '_']
- 1 ['_', '|', '_', '|', '_']
- 2 ['_', '|', '_', '|', '_']
-
-"""
-
-print(L)
-#formato 12 22   coordenadas alv
-
-S = 0
-while S == 0:
-    print("formato")
-    print(L)
-    #for i in range(len(formato)):
-    #    print(formato[i])
+def win(): 
     for i in range(3):
-        print(formato[i])
-    print("En que posicion quieres poner X ?")
-    x,y = input().split()
-    J1 = cambiar(0,x,y)
-    if J1 is True:
-        print("J2 gana")
-        S+=1
-    print("En que posicion quieres poner O ?")
-    x,y = input().split()
-    J2 = cambiar(1,x,y)
-    if J2 is True:
-        print("J2 gana")
-        S+=1
-    os.system("cls")
+        q,w,e = matriz[i].astype(int)
+        if q & w & e == q:
+            print("Fin del juego")
+            return True
+    for i in range(3):
+        q,w,e = matriz[:,i].astype(int)
+        if q & w & e == q:
+            print("Fin del juego")
+            return True
+
+    if matriz[0][0].astype(int) & matriz[1][1].astype(int) & matriz[2][2].astype(int) == matriz[0][0].astype(int):
+        print("fin del juego")
+        return True
+    
+    if matriz[0][2].astype(int) & matriz[1][1].astype(int) & matriz[2][0].astype(int) == matriz[0][2].astype(int):
+        print("fin del juego")
+        return True
+    return False
+
+def comprobar(j,i,o):
+    x = i-1
+    y = o-1
+    matriz[x][y]=j 
+    if j == 1:
+        vals[x][y]="X"
+    else:
+        vals[x][y]="O"
+
+contador = 0
+while True:
+
+    FT =f"""
+      1   2   3
+   1 _{vals[0][0]}_|_{vals[0][1]}_|_{vals[0][2]}_
+   2 _{vals[1][0]}_|_{vals[1][1]}_|_{vals[1][2]}_
+   3 _{vals[2][0]}_|_{vals[2][1]}_|_{vals[2][2]}_
+    
+   """
+    print(FT)
+
+    j1x,j1y = input("Ingresa 'x' en la posicion que quieres:").split()
+    comprobar(1,int(j1x),int(j1y))
+    if contador>2:
+        gana = win()
+        if gana is True:
+            break
+    j2x,j2y = input("Ingresa 'O' en la posicion que quieres:").split()
+    comprobar(2,int(j2x),int(j2y))
+    if contador>3:
+        ganaa = win()
+        if ganaa is True:
+            break
+
+    #print(FT)
+    #print(matriz)
+    #print(vals)
+    #print(FT)
+    contador+=1
+    if contador ==9:
+        break
+
+#print(matriz[:,0])
+
+print(FT)
