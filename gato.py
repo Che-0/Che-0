@@ -1,74 +1,47 @@
-"""
-Juego de Gato
-"""
 import numpy as np
+import os
 
-matriz = np.zeros((3,3))
-vals = [["_","_","_"],["_","_","_"],["_","_","_"]]#print(vals)
+matrix = np.array([[' ' , ' ',  ' '], [' ', ' ', ' '], [' ', ' ', ' ']])
 
-def win(): 
-    for i in range(3):
-        q,w,e = matriz[i].astype(int)
-        if q & w & e == q:
-            print("Fin del juego")
-            return True
-    for i in range(3):
-        q,w,e = matriz[:,i].astype(int)
-        if q & w & e == q:
-            print("Fin del juego")
-            return True
-
-    if matriz[0][0].astype(int) & matriz[1][1].astype(int) & matriz[2][2].astype(int) == matriz[0][0].astype(int):
-        print("fin del juego")
-        return True
-    
-    if matriz[0][2].astype(int) & matriz[1][1].astype(int) & matriz[2][0].astype(int) == matriz[0][2].astype(int):
-        print("fin del juego")
-        return True
-    return False
-
-def comprobar(j,i,o):
-    x = i-1
-    y = o-1
-    matriz[x][y]=j 
-    if j == 1:
-        vals[x][y]="X"
+def posicion(y):
+    x = list(map(int, input("Introduce numeros ").split()))
+    a = x[0]
+    b = x[1]
+    if y == 2:
+        matrix[a][b] = "o"
     else:
-        vals[x][y]="O"
+        matrix[a][b] = "x"
 
-contador = 0
+def comprobar(j):
+    jugador = "J1" if j == 1 else "J2"
+    v = 'x' if j == 1 else 'o'
+        
+    if  ((matrix[0,0] == matrix[1,1] == matrix[2,2] == v) or 
+        (matrix[0,2] == matrix[1,1] == matrix[2,0] == v) or
+        (np.all(matrix[0:3,0] == v) or np.all(matrix[0:3,1] == v) or np.all(matrix[0:3,2] == v) or
+        np.all(matrix[0,0:3] == v) or np.all(matrix[1,0:3] == v) or np.all(matrix[2,0:3] == v))):
+        print(f"Ganaste {jugador}")
+        return False
+    elif np.all(matrix != ' '):
+        print("Empate")
+        exit()
+    else:
+        return True
+
 while True:
-
-    FT =f"""
-      1   2   3
-   1 _{vals[0][0]}_|_{vals[0][1]}_|_{vals[0][2]}_
-   2 _{vals[1][0]}_|_{vals[1][1]}_|_{vals[1][2]}_
-   3 _{vals[2][0]}_|_{vals[2][1]}_|_{vals[2][2]}_
-    
-   """
-    print(FT)
-
-    j1x,j1y = input("Ingresa 'x' en la posicion que quieres:").split()
-    comprobar(1,int(j1x),int(j1y))
-    if contador>2:
-        gana = win()
-        if gana is True:
-            break
-    j2x,j2y = input("Ingresa 'O' en la posicion que quieres:").split()
-    comprobar(2,int(j2x),int(j2y))
-    if contador>3:
-        ganaa = win()
-        if ganaa is True:
-            break
-
-    #print(FT)
-    #print(matriz)
-    #print(vals)
-    #print(FT)
-    contador+=1
-    if contador ==9:
+    print("Jugador 1 x")
+    posicion(1)
+    print(matrix)
+    fin = comprobar(1)
+    if not fin:
         break
-
-#print(matriz[:,0])
-
-print(FT)
+    
+    print("jugador 2")
+    posicion(2)
+    print(matrix)
+    
+    os.system('cls' if os.name == 'nt' else 'clear') 
+    
+    fin = comprobar(2)
+    if not fin:
+        break
