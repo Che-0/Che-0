@@ -16,3 +16,7 @@ Here are some ideas to get you started:
 -->
 
 <h1>FUCK THAT</h1>
+<p> _._     _,-'""`-._
+(,-.`._,'(       |\`-/|
+    `-.-' \ )-`( , o o)
+          `-    \`_`"'-</p>
