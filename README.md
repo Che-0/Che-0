@@ -15,7 +15,7 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-<h1>FUCK THAT</h1>
+<h1>------------------------</h1>
 
 <pre>
  _._     _,-'""`-._
