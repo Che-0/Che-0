@@ -1,7 +1,8 @@
-
-
-![Header](https://raw.githubusercontent.com/Che-0/Che-0/main/assets/header.png)
-<!-- Puedes subir una imagen bonita a /assets/header.png o usar un link externo -->
+<img src="https://i.ytimg.com/vi/ZNWxgCGlc3Q/maxresdefault.jpg" 
+     alt="Header Klee" 
+     width="110%" 
+     height="150px" 
+     style="border-radius:15px; object-fit:cover;">
 
 <h1 align="center">¡Hola!  Soy Che-0</h1>
 
