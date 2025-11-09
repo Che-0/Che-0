@@ -1,8 +1,4 @@
-<img src="https://i.ytimg.com/vi/ZNWxgCGlc3Q/maxresdefault.jpg" 
-     alt="Header Klee" 
-     width="110%" 
-     height="150px" 
-     style="border-radius:15px; object-fit:cover;">
+
 
 <h1 align="center">¡Hola!  Soy Che-0</h1>
 
