@@ -1,9 +1,9 @@
 
 
-<h1 align="center">¡Hola!  Soy Che-0</h1>
+<h1 align="center">Che-0</h1>
 
 <p align="center">
-  <em>Desarrollador apasionado | Entusiasta del código limpio | Siempre aprendiendo</em>
+  <em></em>
 </p>
 
 <p align="center">
@@ -16,16 +16,11 @@
 </p>
 
 ## 🚀 Sobre mí
-🔭 Actualmente estoy trabajando en **proyectos personales con Python **, usandolo con herramientas como wireshark y nmap.  
-🌱 Aprendiendo **AWS, Docker, autopsy** a fondo.   
-🤔 Necesito ayuda con y **buenas prácticas DevOps**.  
-💬 Pregúntame sobre **Python, Git, Redes, Linux, Sistemas operativos** o cualquier duda de programación.  
-📫 Cómo contactarme:  
-&nbsp;&nbsp;✉️ **manuel-1at@proton.me**  
+Actualmente trabajo en implementar todo lo que he aprendido, si las cosas van bien, habra muchos repos, la cuestion es como agruparlos...
 
 
 ## 🛠️ Tecnologías y herramientas
-La verdad es que he aprendido un poco de todo, pero mi mole es python y linux.
+La verdad es que he aprendido un poco de todo, y aun no es suficiente.
 ```text
 Python • JavaScript • HTML/CSS • Git • GitHub • Linux • Docker • PostgreSQL • MongoDB • AWS 
 ```
